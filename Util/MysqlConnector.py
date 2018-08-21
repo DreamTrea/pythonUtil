@@ -48,6 +48,19 @@ class MysqlConnector:
         del cursor
         return buff
 
+    def insertMany(self,table,key,insert_data):
+        keys = ','.join(key)
+        value_question=[]
+        for i in range(0,len(key)):
+            value_question.append('%s')
+        value_string = ','.join(value_question)
+        del value_question
+        cursor = self.connect.cursor()
+        cursor.executemany('insert ignore into '+table+'('+keys+') values ('+value_string+')',insert_data)
+        cursor.close()
+        del cursor
+        self.connect.commit()
+
     def insert(self,table,key,insert_data):
         keys = ','.join(key)
         value_question=[]
@@ -56,8 +69,7 @@ class MysqlConnector:
         value_string = ','.join(value_question)
         del value_question
         cursor = self.connect.cursor()
-        for data in insert_data:
-            cursor.executeMany('insert ignore into '+table+'('+keys+') values ('+value_string+')',data)
+        cursor.execute('insert ignore into '+table+'('+keys+') values ('+value_string+')',insert_data)
         cursor.close()
         del cursor
         self.connect.commit()
