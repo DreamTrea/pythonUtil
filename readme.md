@@ -1,4 +1,4 @@
-# MysqlConnecter class
+# MysqlConnector class
  - 설치필요한 패키지
   - [link](https://dev.mysql.com/downloads/connector/python/8.0.html)
  - config.json 파일의 내용을 수정하셔야 합니다.

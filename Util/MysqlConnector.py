@@ -3,7 +3,7 @@ import os
 from Util.JsonUtil import JsonUtil as ju
 from Util.FileSystem import FileSystem
 
-class MysqlConnecter:
+class MysqlConnector:
     def __init__(self):
         import mysql.connector
 
