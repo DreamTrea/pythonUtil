@@ -1,0 +1,9 @@
+{
+  "mysql":{
+      "server":"url",
+      "port":3306,
+      "userId":"id",
+      "passwd":"{pw}",
+      "database":"{db}"
+  }
+}
